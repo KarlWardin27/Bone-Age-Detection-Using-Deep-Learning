@@ -5,36 +5,35 @@ import os
 
 def main():
 
-    #Example CSV File Path Input :- D:/Bone_Age_Detection/TrainData/datasets_10832_15122_boneage-training-dataset.csv
-
-    DATA_TRAIN = pd.read_csv(input('Enter the Directory of CSV File For Train (Please make sure that your directories are separated by "/" instead of "\") '))
-    DATA_TEST = pd.read_csv(input('Enter the Directory of CSV File For Test '))
-
-    #Example Image Path Input :- D:/Code_Me/Python/Bone_Age_Detection/TrainData
+    #Entering the Image and CSV File Location.
+    DATA_TRAIN = pd.read_csv(" ### Enter Your Path Here ### ")    #Example Path :- /content/gdrive/My Drive/Bone_Data/TrainData/datasets_10832_15122_boneage-training-dataset.csv 
+    DATA_TEST = pd.read_csv(" ### Enter Your Path Here ### ")     #Example Path :- /content/gdrive/My Drive/Bone_Data/TrainData/datasets_10832_15122_boneage-test-dataset.csv
     
-    ORIGINAL_IMAGE_PATH_TRAIN = input('Enter the Directory of Training Images (Please make sure that there is no "/" at the end of the path) ')
-    ORIGINAL_IMAGE_PATH_TEST = input('Enter the Directory of Testing Images (Please make sure that there is no "/" at the end of the path) ')
+    ORIGINAL_IMAGE_PATH_TRAIN = " ### Enter Your Path Here ### "  #Example Path :- /content/gdrive/My Drive/Bone_Data/TrainData/PNGFormat 
+    ORIGINAL_IMAGE_PATH_TEST = " ### Enter Your Path Here ### "   #Example Path :- /content/gdrive/My Drive/Bone_Data/TestData/PNGFormat
 
-    #Creating the Directory for Storing the Bifurcated Images
-    os.mkdir('C:/Bifurcated Data')
-    os.mkdir('C:/Bifurcated Data/Test')
-    os.mkdir('C:/Bifurcated Data/Train')
-    os.mkdir('C:/Bifurcated Data/Test/Male')
-    os.mkdir('C:/Bifurcated Data/Train/Male')
-    os.mkdir('C:/Bifurcated Data/Test/Female')
-    os.mkdir('C:/Bifurcated Data/Train/Female')
 
-    #Resultant Path for Storing Images
-    RESULT_IMAGE_PATH_TRAIN = 'C:/Bifurcated Data/Train/'
-    RESULT_IMAGE_PATH_TEST = 'C:/Bifurcated Data/Test/'
+    #Creating the Directory for Storing the Bifurcated Images. NO NEED TO CHANGE ANYTHING FROM HERE.
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images')
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images/Test')
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images/Train')
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images/Test/Male')
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images/Train/Male')
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images/Test/Female')
+    os.mkdir('/content/gdrive/My Drive/Bifurcated_Images/Train/Female')
+
+    #Resultant Path for Storing Images.
+    RESULT_IMAGE_PATH_TRAIN = '/content/gdrive/My Drive/Bifurcated_Images/Train/'
+    RESULT_IMAGE_PATH_TEST = '/content/drive/My Drive/Bifurcated_Images/Test/'
 
     #Function written for Bifurcation
     Bifurcate(1377, 15611, DATA_TRAIN, ORIGINAL_IMAGE_PATH_TRAIN, RESULT_IMAGE_PATH_TRAIN)
     Bifurcate(4360, 4560, DATA_TEST, ORIGINAL_IMAGE_PATH_TEST, RESULT_IMAGE_PATH_TEST)
 
-    print('Your File has been Saved to C:/Bifurcated Data')
+    print('Your File has been Saved to the Connected Drive /Bifurcated_Images')
    
 
+   
 #Function that Bifurcates Images named K.png all the way upto M.png, into Male and Female X-rays
 def Bifurcate (k, m, DATA, Original_Image_Path, Result_Image_Path):
     csvcount = 0
