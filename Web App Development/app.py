@@ -39,7 +39,7 @@ def home():
     Mean_Bone_Age = 127.3207517246848
     Standard_Bone_Age = 41.18202139939618
 
-    Predict = Mean_Bone_Age + Standard_Bone_Age*(model.predict(np.array([img])))
+    Predict = round((mean_bone_age + std_bone_age*(model.predict(np.array([img]))[0][0]))/12, 2)
 
     return render_template('prediction.html', data = Predict)    
 
