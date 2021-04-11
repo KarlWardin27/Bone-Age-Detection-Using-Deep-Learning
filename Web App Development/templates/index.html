@@ -26,35 +26,41 @@
   </body>
   </html>
   <html>
-    <body style = "background-color: #9BB7D4;"> 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="padding-left: 30px;">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                    <img src="static/logo.png" width="50px" height="60px" alt="">
-                  </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>      
-
+    <body style = "background-color: #FAFAFA;"> 
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a1 style = "padding-left: 0px ;"><strong>Bone Age Prediction</strong></a1>
+          <a class="navbar-brand" style = "padding-left : 15px" >
+                <img src="/static/logo3.png" width="45px" height="40px" alt="" >
+              </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active" style = "padding-left: 20px ;" style = "padding-right: 20px ;" >
+                <a class="nav-link" href="/">Home
+                      <span class="sr-only">(current)</span>
+                    </a>
+              </li>
+              <li class="nav-item" style = "padding-left: 20px ;" style = "padding-right: 20px ;" >
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item" style = "padding-left: 20px ;" style = "padding-right: 20px ;"  >
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> 
+      <style> 
+          a1 {
+            font-size: 25px;
+            color: #66b933 ;
+          }     
+      </style>
             <div class="d-flex justify-content-center">
-                <center><form method ="POST" action="{{url_for('home')}}" enctype="multipart/form-data" style = "padding-top : 200px">
+                <center><form method ="POST" action="{{url_for('index')}}" enctype="multipart/form-data" style = "padding-top : 230px">
                      <div class="form-group">
                             <label for ="image"><strong>Add Your Hand X-Ray</strong></label><br>
                             <input type="file" name='image' class='btn btn-secondary'><br>
