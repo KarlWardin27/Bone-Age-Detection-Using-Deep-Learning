@@ -1,4 +1,4 @@
-# Bone-Age-Detection-Using-Deep-Learning
+# Bone-Age-Assessment-Using-Deep-Learning
 
 Codes are written for final year project. 
 
