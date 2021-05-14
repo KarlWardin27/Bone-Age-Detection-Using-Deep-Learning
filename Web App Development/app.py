@@ -25,11 +25,17 @@ def main():
 def index():
 
     img = request.files['image']
+    option = request.form['Radios']
 
     img.save('static/'+secure_filename(img.filename))
     img_dir = 'static/' + secure_filename(img.filename)
 
-    model = tf.keras.models.load_model('D:/Code_Me/Python/web_app/best_model.h5', compile=False)
+    if option == "option1":
+        model = tf.keras.models.load_model('D:/Code_Me/Python/Model/best_model_male.h5', compile=False)
+    elif option == "option2":
+        model = tf.keras.models.load_model('D:/Code_Me/Python/Model/best_model_female.h5', compile=False)
+    else:
+        model = tf.keras.models.load_model('D:/Code_Me/Python/Model/best_model.h5', compile=False)
     img=tf.keras.preprocessing.image.load_img(img_dir,target_size=(256,256))
     img=tf.keras.preprocessing.image.img_to_array(img)
     img=tf.keras.applications.xception.preprocess_input(img)
@@ -40,7 +46,7 @@ def index():
     pred = round((mean_bone_age + std_bone_age*(model.predict(np.array([img]))[0][0]))/12, 2)
 
     final = list()
-    final.append(pred)
+    final.append(str(pred))
     final.append(img_dir)
 
     return render_template('prediction.html', data = final)    
